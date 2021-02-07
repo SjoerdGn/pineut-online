@@ -3,12 +3,16 @@
 
 <body>
   <script src="script.js"></script>
+  <p>Number of players:</p>
 <input type="number" name="Number of players" size="1"
   id='numPlayers' onchange='numPlayersFunc()' value=3></input>
   <br>
-<button onclick="startGame()">Start Game </button>
+
 <p id="Started">You haven't started yet, this will result in an error.</p>
 <br>
+
+<div id="enterNames">You can fill the player names in here</div>
+<button onclick="startGame()">Start game</button>
 <br>
 <br>
 

@@ -6,9 +6,11 @@ let vals = [];
 var turn = 0;
 
 let numPlayers = 3;
+var playerNames = [];
 
 function numPlayersFunc(){
   numPlayers = document.getElementById('numPlayers').value;
+  namesFill();
 }
 
 
@@ -18,6 +20,8 @@ function startGame(){
     vals.push(11);
 
   }
+  getNames();
+  console.log(vals);
   document.getElementById('Started').innerHTML = "Started. Playing with " + numPlayers + " players."
 }
 
@@ -25,6 +29,25 @@ function returnPlayer(turn){
   player = turn % numPlayers;
   return player
 }
+
+function namesFill(){
+  var playerNamesString ="", i;
+  for (i=0; i<numPlayers; i++) {
+    playerNamesString = playerNamesString + "<p>Player " + (i+1) + "</p><input type='text' id='p" + i + "'></input>";
+  }
+  document.getElementById("enterNames").innerHTML = playerNamesString;
+}
+
+
+function getNames(){
+  for (i=0; i<numPlayers; i++){
+    var wantedId = "p"+i;
+    var wantedValue = document.getElementById(wantedId).value;
+    playerNames.push(wantedValue);
+  }
+}
+
+
 
 function dropCoin() {
   player = returnPlayer(turn);
@@ -46,13 +69,13 @@ function takeCoins(){
 }
 
 function whoseTurnIsIt(){
-  document.getElementById('turnDude').innerHTML = "It's player " + (turn%numPlayers+1) + " 's turn!";
+  document.getElementById('turnDude').innerHTML = "It's "+playerNames[player] +  "'s turn!";
 }
 
 function showCoins(){
   var scores ="", i;
   for (i=0; i<numPlayers; i++) {
-    scores = scores + "<p> Player "+ (i + 1) + ", coins = " + vals[i] + "</p>";
+    scores = scores + "<p> " + playerNames[i] + ", coins = " + vals[i] + "</p>";
   }
   document.getElementById("Coins").innerHTML = scores;
 }
