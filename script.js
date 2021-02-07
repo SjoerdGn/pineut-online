@@ -69,7 +69,7 @@ function takeCoins(){
 }
 
 function whoseTurnIsIt(){
-  document.getElementById('turnDude').innerHTML = "It's "+playerNames[player] +  "'s turn!";
+  document.getElementById('turnDude').innerHTML = "It's "+playerNames[returnPlayer(turn)] +  "'s turn!";
 }
 
 function showCoins(){
