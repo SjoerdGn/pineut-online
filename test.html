@@ -2,24 +2,27 @@
 <html>
 
 <body>
-
+  <script src="script.js"></script>
 <input type="number" name="Number of players" size="1"
   id='numPlayers' onchange='numPlayersFunc()' value=3></input>
   <br>
 <button onclick="startGame()">Start Game </button>
+<p id="Started">You haven't started yet, this will result in an error.</p>
 <br>
 <br>
 <br>
 
+
+
+<div id='turnDude'><i>Player 1 has to start</i></div>
   <button onclick="dropCoin()">Drop coin</button>
-  <script src="script.js"></script>
-
-  <p id=0>11</p>
-  <p id=1>11</p>
-  <p id=2>11</p>
-  <p>total <br> -----</p>
+  <button onclick="takeCoins()">Take coins</button>
+<br>
+<br>
+  <div id='Coins'><i>Coins will be shown here</i></div>
+  <p>Total <br> -----</p>
   <p id="total">0</p>
-<button onclick="takeCoins()">Take coins</button>
+
 </body>
 
 </html>

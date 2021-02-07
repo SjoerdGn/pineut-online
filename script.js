@@ -7,37 +7,22 @@ var turn = 0;
 
 let numPlayers = 3;
 
-let players = [];
-
 function numPlayersFunc(){
   numPlayers = document.getElementById('numPlayers').value;
-  console.log(numPlayers)
 }
 
 
 function startGame(){
-  console.log(numPlayers);
-  players = []; // create an empty array
-  for (i = 0; i < numPlayers; i++){
-    players.push(i);
-  }//[...Array(numPlayers).keys()];
-  console.log(players);
   //vals = []; // create an empty array
-  for (var i in players){
-    vals.push(11
-    );
+  for (i=0; i<=numPlayers; i++){
+    vals.push(11);
 
   }
-  console.log(vals);
+  document.getElementById('Started').innerHTML = "Started. Playing with " + numPlayers + " players."
 }
-
-for (var player in vals){
-  document.getElementById(player).innerHTML = vals[player];
-}
-document.getElementById('total').innerHTML = totval;
 
 function returnPlayer(turn){
-  player = players[turn % numPlayers];
+  player = turn % numPlayers;
   return player
 }
 
@@ -46,10 +31,9 @@ function dropCoin() {
   turn+=1;
   totval += 1;
   vals[player] -= 1;
-  console.log(player);
-  console.log(players);
-  document.getElementById(player).innerHTML = vals[player];
+  showCoins();
   document.getElementById('total').innerHTML = totval;
+  whoseTurnIsIt();
 }
 
 
@@ -57,15 +41,18 @@ function takeCoins(){
   player = returnPlayer(turn);
   vals[player] += totval;
   totval = 0;
-  document.getElementById(player).innerHTML = vals[player];
+  showCoins();
   document.getElementById('total').innerHTML = totval;
 }
-/*
-var x ="", i;
-for (i=1; i<=6; i++) {
-  x = x + "<h" + i + ">Heading " + i + "</h" + i + ">";
+
+function whoseTurnIsIt(){
+  document.getElementById('turnDude').innerHTML = "It's player " + (turn%numPlayers+1) + " 's turn!";
 }
-document.getElementById("demo").innerHTML = x;
 
-
-*/
+function showCoins(){
+  var scores ="", i;
+  for (i=0; i<numPlayers; i++) {
+    scores = scores + "<p> Player "+ (i + 1) + ", coins = " + vals[i] + "</p>";
+  }
+  document.getElementById("Coins").innerHTML = scores;
+}
