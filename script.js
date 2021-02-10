@@ -8,10 +8,13 @@ var turn = 0;
 let numPlayers = 3;
 var playerNames = [];
 
+
+
 function numPlayersFunc(){
   numPlayers = document.getElementById('numPlayers').value;
   namesFill();
 }
+
 
 
 function startGame(){
@@ -57,6 +60,7 @@ function dropCoin() {
   showCoins();
   document.getElementById('total').innerHTML = totval;
   whoseTurnIsIt();
+  testZeroCoins();
 }
 
 
@@ -66,6 +70,7 @@ function takeCoins(){
   totval = 0;
   showCoins();
   document.getElementById('total').innerHTML = totval;
+  testZeroCoins();
 }
 
 function whoseTurnIsIt(){
@@ -79,3 +84,15 @@ function showCoins(){
   }
   document.getElementById("Coins").innerHTML = scores;
 }
+
+function testZeroCoins(){
+  if(vals[player]==0){
+    document.getElementById('dropCoinButton').innerHTML="<button onclick='dropCoin()' disabled>Drop coin</button>";
+  }
+    else {document.getElementById('dropCoinButton').innerHTML="<button onclick='dropCoin()'>Drop coin</button>";
+
+  }
+}
+
+buttonstring = "<button onclick='dropCoin()'>Drop coin</button>";
+document.getElementById('dropCoinButton').innerHTML=buttonstring;

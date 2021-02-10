@@ -2,7 +2,7 @@
 <html>
 
 <body>
-  <script src="script.js"></script>
+
   <p>Number of players:</p>
 <input type="number" name="Number of players" size="1"
   id='numPlayers' onchange='numPlayersFunc()' value=3></input>
@@ -19,14 +19,14 @@
 
 
 <div id='turnDude'><i>Player 1 has to start</i></div>
-  <button onclick="dropCoin()">Drop coin</button>
-  <button onclick="takeCoins()">Take coins</button>
+<div id='dropCoinButton'>test</div>
+<button onclick="takeCoins()">Take coins</button>
 <br>
 <br>
   <div id='Coins'><i>Coins will be shown here</i></div>
   <p>Total <br> -----</p>
   <p id="total">0</p>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
