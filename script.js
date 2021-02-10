@@ -8,7 +8,8 @@ var turn = 0;
 let numPlayers = 3;
 var playerNames = [];
 
-
+buttonstring = "<button onclick='dropCoin()'>Drop coin</button>";
+document.getElementById('dropCoinButton').innerHTML=buttonstring;
 
 function numPlayersFunc(){
   numPlayers = document.getElementById('numPlayers').value;
@@ -93,6 +94,3 @@ function testZeroCoins(){
 
   }
 }
-
-buttonstring = "<button onclick='dropCoin()'>Drop coin</button>";
-document.getElementById('dropCoinButton').innerHTML=buttonstring;
