@@ -1,6 +1,31 @@
 let totval = 0;
 //let players = [0,1,2]
+let cardNum = 0;
+function range(start, end) {
+  return Array(end - start + 1).fill().map((_, idx) => start + idx)
+}
 
+let cardsPlayer = [];
+let cardsUnshuffled = range(4,36);
+let cards = cardsUnshuffled;
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 let vals = [];
 var turn = 0;
@@ -16,17 +41,22 @@ function numPlayersFunc(){
   namesFill();
 }
 
-
+function showCard(){
+  document.getElementById('currentCard').innerHTML = "<p style='font-size:30px'>Current card: <b>" + cards[cardNum] + "</b></p>";
+}
 
 function startGame(){
   //vals = []; // create an empty array
   for (i=0; i<=numPlayers; i++){
     vals.push(11);
+    cardsPlayer.push([]);
 
   }
   getNames();
-  console.log(vals);
+  cards = shuffle(cardsUnshuffled);
+  console.log(cards);
   document.getElementById('Started').innerHTML = "Started. Playing with " + numPlayers + " players."
+  showCard();
 }
 
 function returnPlayer(turn){
@@ -62,16 +92,25 @@ function dropCoin() {
   document.getElementById('total').innerHTML = totval;
   whoseTurnIsIt();
   testZeroCoins();
+  showCard();
 }
 
 
 function takeCoins(){
   player = returnPlayer(turn);
+  takeCard(player);
   vals[player] += totval;
   totval = 0;
   showCoins();
   document.getElementById('total').innerHTML = totval;
   testZeroCoins();
+  cardNum++;
+  showCard();
+
+}
+
+function takeCard(player){
+  cardsPlayer[player].push(cards[cardNum]);
 }
 
 function whoseTurnIsIt(){
@@ -81,7 +120,7 @@ function whoseTurnIsIt(){
 function showCoins(){
   var scores ="", i;
   for (i=0; i<numPlayers; i++) {
-    scores = scores + "<p> " + playerNames[i] + ", coins = " + vals[i] + "</p>";
+    scores = scores + "<p> " + playerNames[i] + ", coins = " + vals[i] + ", cards = " + cardsPlayer[i].sort(function(a, b) {return a - b}) + " </p>";
   }
   document.getElementById("Coins").innerHTML = scores;
 }
@@ -94,3 +133,4 @@ function testZeroCoins(){
 
   }
 }
+//todo finish at certain turn
