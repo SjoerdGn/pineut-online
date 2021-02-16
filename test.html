@@ -1,30 +1,38 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <link href="styles/basic.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Josefin+Sans">
 
+</head>
 <body>
 
-  <p>Number of players:</p>
+  <p>Number of players:
 <input type="number" name="Number of players" size="1"
-  id='numPlayers' onchange='numPlayersFunc()' value=3></input>
-  <br>
+  id='numPlayers' onchange='numPlayersFunc()' value=3></input></p>
 
-<p id="Started">You haven't started yet, this will result in an error.</p>
 <br>
 
-<div id="enterNames">You can fill the player names in here</div>
+<div id="enterNames"></div>
+<br>
 <button onclick="startGame()">Start game</button>
 <br>
+<br>
+<div class = 'red' id="Started"><i>You haven't started yet, this will result in an error.</i></div>
+
 <br>
 
 <div id='currentCard'></div>
 <br>
 <div id='turnDude'><i>Player 1 has to start</i></div>
 <div id='dropCoinButton'></div>
+<br>
 <button onclick="takeCoins()">Take coins and card</button>
 <br>
 <br>
   <div id='Coins'><i>Coins will be shown here</i></div>
-  <p>Total <br> -----</p>
+  <p>Total for this card: <br>______</p>
   <p id="total">0</p>
   <br>
   <div id="showScoresAtEnd"></div>

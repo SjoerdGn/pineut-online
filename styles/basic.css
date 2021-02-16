@@ -1,0 +1,28 @@
+p {
+  color: grey;
+  width: 500px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+}
+
+div {
+  color: grey;
+  width: 500px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button {
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #000099; /* Green */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+}
+div.big {
+  font-size: 20px;
+}
+
+div.red {
+  color: red;
+}

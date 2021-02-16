@@ -64,7 +64,7 @@ function returnPlayer(turn){
 }
 
 function namesFill(){
-  var playerNamesString ="", i;
+  var playerNamesString ="<div class = 'big'>Enter player names</div>", i;
   for (i=0; i<numPlayers; i++) {
     playerNamesString = playerNamesString + "<p>Player " + (i+1) + "</p><input type='text' id='p" + i + "'></input>";
   }
